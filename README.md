@@ -17,31 +17,28 @@ RESTful API architecture with clean, modular code
 
 ## Setup & Execution
 To run the backend locally:
-
 Clone the repository and navigate to the backend directory.
-
 Create a Python virtual environment and activate it.
-
 Install the project dependencies using pip.
-
 Configure your MySQL database in settings.py.
-
 Apply migrations and create a superuser.
-
 Start the development server using Django’s runserver command.
-
 The server will be accessible at http://localhost:8000.
 
 ## Testing
 All backend functionalities are validated through automated tests written using Django’s APITestCase module. These tests cover authentication, CRUD operations, purchase logic, and helper methods.
-
 To run the tests
-python manage.py test
-
+## python manage.py test
 This will execute the full suite and display a summary of passed and failed tests in the terminal.
+
+## AI Usage Disclosure:
+The backend project was supported by AI tools to enhance development efficiency. ChatGPT was used to assist with test scaffolding and commit documentation. GitHub Copilot provided code suggestions for repetitive patterns. All business logic, validations, and design decisions were implemented manually and thoroughly reviewed by the developer.
 
 ## Test Report:
 # [Test_report.md](https://github.com/user-attachments/files/21455499/Test_report.md)
 
-## AI Usage Disclosure:
-The backend project was supported by AI tools to enhance development efficiency. ChatGPT was used to assist with test scaffolding and commit documentation. GitHub Copilot provided code suggestions for repetitive patterns. All business logic, validations, and design decisions were implemented manually and thoroughly reviewed by the developer.
+## ScreenShots pdf:
+# [Sweets_shop.pdf](https://github.com/user-attachments/files/21455894/Sweets_shop.pdf)
+
+
+
