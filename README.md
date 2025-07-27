@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Sweet Shop Management – Frontend
+(React Application)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Project Overview:
+The frontend of the Sweet Shop Management System has been developed using React.js. It serves as the user interface through which both customers and administrative users interact with the backend API services. The system provides secure, role-based access and a clean, responsive interface for sweet catalog management and purchase operations.
 
-## Available Scripts
+The application supports authentication via JWT, and its structure allows conditional rendering of features based on the user's role (customer or admin). Customers are able to view and purchase sweets, while administrators have privileges to manage the inventory.
 
-In the project directory, you can run:
+# Core Functionalities:
 
-### `npm start`
+## User Authentication:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+   * Registration form accepting first name, last name, username, email, password, and user role (admin or customer).
+   * Login form with JWT-based authentication.
+   * User-specific feedback for successful or invalid login and registration attempts.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Customer Capabilities:
 
-### `npm test`
+   * View all available sweets with details such as name, price, category, and quantity in stock.
+   * Search sweets by unique ID.
+   * Purchase sweets by entering desired quantity.
+   * Display of feedback messages when attempting to purchase unavailable or out-of-stock items.
+   * Purchase functionality is only available to logged-in users.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Admin Functionalities:
 
-### `npm run build`
+   * Add new sweets by specifying name, category, price, and quantity.
+   * Update existing sweet details partially or completely.
+   * Delete sweets from the catalog.
+   * Restock items by increasing their available quantity.
+   * Admin panel access is strictly restricted to authenticated admin users.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## User Interface and Experience:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   * Clean and bright design for intuitive navigation.
+   * Responsive layout that adapts to different screen sizes (desktop, tablet, mobile).
+   * Real-time alerts and feedback messages upon successful or failed operations.
+   * Role-based rendering of components and features.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Execution and Setup:
+The frontend application is developed using React and can be run locally using Node.js. After installing project dependencies using npm, the development server can be launched, allowing access to the application through the browser. The frontend is designed to interact with the backend via RESTful APIs. API endpoints are integrated using Axios, and any required changes to backend URLs can be adjusted within the frontend service configuration files.
 
-### `npm run eject`
+## AI Usage Disclosure:
+To support the frontend development process, AI tools such as ChatGPT and GitHub Copilot were utilized. These tools assisted in generating form validation logic, component structures, and layout ideas. However, all business logic, API integrations, and user interface decisions were implemented and reviewed manually by the developer.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# ScreenShots pdf:[Sweets_shop.pdf](https://github.com/user-attachments/files/21455888/Sweets_shop.pdf)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
