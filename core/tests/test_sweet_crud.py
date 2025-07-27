@@ -9,7 +9,8 @@ class SweetCRUDTests(APITestCase):
 
     def test_create_sweet_success(self):
         """
-        Red: This test is intentionally incorrect — expects 400 instead of 201
+         Green: This test now passes after fixing expected status to 201
+         Fixed: Sweet created successfully by admin
         """
         url = reverse('sweet-list-create')
         data = {
@@ -20,11 +21,12 @@ class SweetCRUDTests(APITestCase):
         }
         self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.admin_token)
         response = self.client.post(url, data)
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)  # ❌ wrong on purpose
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_create_sweet_fail_if_not_admin(self):
         """
-        Red: This test is also incorrect — expects 201 instead of 401/403
+         Green: This test now passes — unauthenticated user is blocked
+         Fixed: Non-admin should not be allowed to create sweet
         """
         self.client.credentials()  # unauthenticated
         url = reverse('sweet-list-create')
@@ -35,4 +37,4 @@ class SweetCRUDTests(APITestCase):
             "category": "Fried"
         }
         response = self.client.post(url, data)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)  # ❌ wrong on purpose
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
