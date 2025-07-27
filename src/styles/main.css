@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Poppins:wght@500;700&display=swap');
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(135deg, #f9f9f9, #e0f7fa);
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.navbar {
+  background: #4a148c; /* changed to a deeper, cooler violet */
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.8rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 10; /* Ensure navbar stays on top */
+}
+
+.navbar h1 {
+  font-size: 1.35rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.navbar a {
+  margin: 0 8px;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.navbar button {
+  font-size: 0.9rem;
+  padding: 6px 12px;
+  background-color: #7e57c2;
+  border-radius: 6px;
+  margin-left: 10px;
+}
+
+.form-container {
+  background: #ffffff;
+  max-width: 420px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+input {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  border: 1.5px solid #ce93d8;
+  border-radius: 8px;
+  background-color: #fefefe;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  background: #7e57c2;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #ba68c8;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Fixed positioning solution */
+.sweet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem;
+  position: relative;
+  z-index: 5; /* Above background, below navbar */
+  /* Removed margin-top: -180px; - this was causing the dependency */
+}
+
+.sweet-card {
+  background: #fafafa;
+  border-radius: 16px;
+  padding: 1rem;
+  box-shadow: 0 8px 16px rgba(106, 27, 154, 0.1);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sweet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(106, 27, 154, 0.25);
+}
+
+.qty-input {
+  width: 60px;
+  margin: 0 auto 10px auto;
+  display: block;
+}
+
+/* Key fix: Make wave background absolute so it doesn't affect layout */
+.wave-background {
+  position: absolute; /* Changed from relative to absolute */
+  top: 0; /* Position from top of viewport */
+  left: 0;
+  width: 100%;
+  height: 100vh; /* You can change this height without affecting cards */
+  overflow: hidden;
+  background: linear-gradient(135deg, #f9f9f9, #e0f7fa);
+  z-index: 1; /* Behind everything else */
+  pointer-events: none; /* Prevent interaction issues */
+}
+
+.wave-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.button-group button {
+  flex: 1;
+}
