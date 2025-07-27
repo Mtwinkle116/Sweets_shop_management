@@ -20,12 +20,18 @@ class SweetCRUDTests(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
     def test_update_sweet_success(self):
-        """
-         Green: Fixed expected status code to 200 OK
-         Sweet can be partially updated by admin
-        """
         sweet = create_sweet()
         self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.admin_token)
         url = reverse('sweet-update', args=[sweet.id])
         response = self.client.patch(url, {"price": 30})
-        self.assertEqual(response.status_code, status.HTTP_200_OK)  # ✅ fixed
+        self.assertEqual(response.status_code, status.HTTP_200_OK)
+
+    def test_delete_sweet(self):
+        """
+         Red: Intentionally failing - wrong expected status
+        """
+        sweet = create_sweet()
+        self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.admin_token)
+        url = reverse('sweet-delete', args=[sweet.id])
+        response = self.client.delete(url)
+        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)  # ❌ wrong on purpose
