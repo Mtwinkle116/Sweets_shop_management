@@ -4,6 +4,7 @@ from rest_framework import status
 from django.contrib.auth import get_user_model
 
 class AuthTests(APITestCase):
+
     def test_register_user_success(self):
         url = reverse('register')
         data = {
@@ -13,7 +14,7 @@ class AuthTests(APITestCase):
             "is_admin": False
         }
         response = self.client.post(url, data)
-        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)  # ❌ Intentionally incorrect
 
     def test_register_user_missing_password(self):
         url = reverse('register')
@@ -23,18 +24,18 @@ class AuthTests(APITestCase):
             "is_admin": False
         }
         response = self.client.post(url, data)
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)  # ❌ Intentionally incorrect
 
     def test_login_user_success(self):
         user = get_user_model().objects.create_user(username="loginuser", password="pass123")
-        url = reverse('token_obtain_pair')  # or 'login' if you're using a custom login view
+        url = reverse('token_obtain_pair')
         data = {"username": "loginuser", "password": "pass123"}
         response = self.client.post(url, data)
-        self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertIn("access", response.data)
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)  #incorrect
+        self.assertNotIn("access", response.data)  # incorrect
 
     def test_login_user_invalid_credentials(self):
         url = reverse('token_obtain_pair')
         data = {"username": "wrong", "password": "wrongpass"}
         response = self.client.post(url, data)
-        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+        self.assertEqual(response.status_code, status.HTTP_200_OK)  #incorrect
