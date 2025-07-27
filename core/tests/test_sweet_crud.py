@@ -28,10 +28,11 @@ class SweetCRUDTests(APITestCase):
 
     def test_delete_sweet(self):
         """
-         Red: Intentionally failing - wrong expected status
+         Green: Fixed expected status code to 204 No Content
+        Sweet deleted successfully
         """
         sweet = create_sweet()
         self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.admin_token)
         url = reverse('sweet-delete', args=[sweet.id])
         response = self.client.delete(url)
-        self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)  # ❌ wrong on purpose
+        self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)  # ✅ fixed
