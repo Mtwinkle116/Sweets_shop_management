@@ -21,10 +21,11 @@ class SweetCRUDTests(APITestCase):
 
     def test_update_sweet_success(self):
         """
-         Red: This test intentionally fails by asserting incorrect status code
+         Green: Fixed expected status code to 200 OK
+         Sweet can be partially updated by admin
         """
         sweet = create_sweet()
         self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.admin_token)
         url = reverse('sweet-update', args=[sweet.id])
         response = self.client.patch(url, {"price": 30})
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)  # ❌ wrong on purpose
+        self.assertEqual(response.status_code, status.HTTP_200_OK)  # ✅ fixed
